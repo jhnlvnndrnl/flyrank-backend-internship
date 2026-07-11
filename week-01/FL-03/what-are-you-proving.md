@@ -52,19 +52,19 @@ I used AI as a thinking partner to refine my proof statement rather than having 
 
 The AI asked me to pick one role to lead with instead of trying to present both Software Engineering and AI Engineering equally, since diluting the claim makes it forgettable.
 
-`images/ai-thinking-partner-1.png`
+![Choosing One Role](images/ai-thinking-partner-1.png)
 
 ### Question 2 — Finding a Common Pattern in My Work
 
 Once I chose Software Engineering with AI as a differentiator, the AI pushed back that "I'm a good software engineer" still isn't provable on its own, and asked me to find the specific type of problem I keep gravitating toward across my internship, hackathons, and projects.
 
-`images/ai-thinking-partner-2.png`
+![Finding a Pattern](images/ai-thinking-partner-2.png)
 
 ### Question 3 — Narrowing Down to the Strongest Proof
 
 After I described my pattern as building complete, end-to-end solutions, the AI flagged that this was still a description of myself rather than proof, and asked me to pick the single strongest project a recruiter could look at to verify the claim.
 
-`images/ai-thinking-partner-3.png`
+![Narrowing to Proof](images/ai-thinking-partner-3.png)
 
 ---
 
