@@ -132,3 +132,5 @@ images/
 # Reflection
 
 This activity helped me evaluate my portfolio from a recruiter's perspective rather than a visual-design one. Sketching the sitemap around "landing → believing → action" made it obvious which sections were earning their place and which were there out of habit. Setting up the Claude Project as a standing build tutor, rather than starting fresh each chat, means the pressure-testing from here on will be grounded in the same proof statement and action every time.
+
+**End of FL-02 Submission**
