@@ -77,3 +77,4 @@ pnpm-debug.log*
 # Mac/Linux Executables
 # =========================
 *.out
+.DS_Store
