@@ -93,7 +93,7 @@ The following tools were configured as part of this assignment.
 
 ## Custom Instructions
 
-> I am pursuing software engineering with a focus on backend development and AI research. Help me understand concepts instead of only providing answers. Prioritize Python, FastAPI, Git, software engineering best practices, and clean architecture. When generating code, explain important implementation decisions and encourage learning instead of simply providing solutions.
+> I am a Computer Engineering student focused on backend development, software engineering, and AI research. Help me understand concepts instead of only giving answers. Prefer Python, FastAPI, Git, and clean software engineering practices. Keep explanations concise but include examples when useful. If writing code, explain why each important decision was made.
 
 ## Evidence
 
