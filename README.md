@@ -42,10 +42,17 @@ assignment/
 │       ├── FL-05/                 # Prompt Laddering & Iteration Benchmark
 │       └── FL-06/                 # Prompting Fundamentals on Real Tasks
 │
-├── week-03/                        # Week 3: Persistence & Database Integration (Upcoming)
-│   ├── README.md
+├── week-03/                        # Week 3: Persistence & Database Integration
+│   ├── README.md                  # Week 3 summary
 │   ├── backend/
+│   │   └── BE-03/                 # SQLite-backed CRUD API
+│   │       ├── README.md          # BE-03 Documentation & SQL queries
+│   │       ├── requirements.txt   # Dependencies
+│   │       └── app/
+│   │           ├── database.py    # SQLite connection & schema initialization
+│   │           └── main.py        # Parameterized SQL CRUD endpoints
 │   └── fluency/
+
 │
 └── docs/                           # Central Knowledge & Reference Docs
     ├── resources.md               # Curated learning resources & references
@@ -65,7 +72,8 @@ assignment/
 | **Week 2** | **Fluency** | [`FL-04`](week-02/fluency/FL-04/frame-it_as_cases.md) | Frame It As Cases — Structured Systems Analysis | `Completed` |
 | **Week 2** | **Fluency** | [`FL-05`](week-02/fluency/FL-05/prompt_ladder.md) | Prompt Laddering & Output Comparison Benchmarks | `Completed` |
 | **Week 2** | **Fluency** | [`FL-06`](week-02/fluency/FL-06/Prompting_Fundamentals_on_Real_Tasks_v2.md) | Prompting Fundamentals on Real Tasks | `Completed` |
-| **Week 3** | **Backend** | `BE-03` | Database Integration & Persistent Storage | `In Progress` |
+| **Week 3** | **Backend** | [`BE-03`](week-03/backend/BE-03/README.md) | **Connecting your CRUD to SQLite Database** | `Completed` |
+
 
 ---
 
