@@ -1,4 +1,4 @@
-# 🚀 FlyRank Backend Engineering Internship
+# FlyRank Backend Engineering Internship
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
@@ -9,13 +9,13 @@
 
 ---
 
-## 📌 Overview
+## Overview
 
 This repository serves as a centralized hub for all weekly engineering deliverables, API implementations, and technical case studies. Rather than fragmenting assignments across isolated repositories, this mono-repo preserves complete git history, architectural progression, and clean modular organization.
 
 ---
 
-## 🗺 Repository Architecture
+## Repository Architecture
 
 ```text
 assignment/
@@ -54,7 +54,7 @@ assignment/
 
 ---
 
-## 🗓 Weekly Deliverables Matrix
+## Weekly Deliverables Matrix
 
 | Week | Track | Module | Description | Status |
 | :--- | :--- | :--- | :--- | :---: |
@@ -69,16 +69,16 @@ assignment/
 
 ---
 
-## ⚡ Featured Project: FastAPI CRUD API (BE-02)
+## Featured Project: FastAPI CRUD API (BE-02)
 
 The **BE-02** module is a lightweight, production-grade RESTful CRUD API built with **FastAPI**.
 
 ### Key Features
-- 🔄 **Full CRUD Operations**: Endpoints for creating (`POST`), reading (`GET`), updating (`PUT`), and deleting (`DELETE`) tasks.
-- 🎯 **Custom Input Validation**: Overridden exception handlers returning explicit HTTP `400 Bad Request` JSON responses (`{"error": "..."}`) for empty or missing payloads.
-- 📖 **Interactive OpenAPI Documentation**: Built-in Swagger UI at `/docs`.
-- 🔍 **Filtering & Search**: Support for completion status query filters (`?done=true`) and search (`?search=keyword`).
-- 📊 **Stats & Reset Utilities**: Aggregated metrics (`GET /stats`) and database reset (`POST /reset`).
+- **Full CRUD Operations**: Endpoints for creating (`POST`), reading (`GET`), updating (`PUT`), and deleting (`DELETE`) tasks.
+- **Custom Input Validation**: Overridden exception handlers returning explicit HTTP `400 Bad Request` JSON responses (`{"error": "..."}`) for empty or missing payloads.
+- **Interactive OpenAPI Documentation**: Built-in Swagger UI at `/docs`.
+- **Filtering & Search**: Support for completion status query filters (`?done=true`) and search (`?search=keyword`).
+- **Stats & Reset Utilities**: Aggregated metrics (`GET /stats`) and database reset (`POST /reset`).
 
 ### Quick Run Instructions
 ```bash
@@ -91,11 +91,11 @@ pip install -r requirements.txt
 # 3. Launch the development server
 uvicorn app.main:app --reload
 ```
-View the live interactive API documentation at 👉 **[http://localhost:8000/docs](http://localhost:8000/docs)**.
+View the live interactive API documentation at **[http://localhost:8000/docs](http://localhost:8000/docs)**.
 
 ---
 
-## 🛠 Technology Stack
+## Technology Stack
 
 - **Backend Framework**: Python 3.10+, FastAPI, Uvicorn (ASGI Server)
 - **API Standards**: RESTful API design, OpenAPI 3.0, Swagger UI
@@ -104,7 +104,7 @@ View the live interactive API documentation at 👉 **[http://localhost:8000/doc
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **John Elvin Endrenal**  
 Backend AI Engineering Intern @ FlyRank  
