@@ -7,21 +7,24 @@ import os
 import psycopg2
 from psycopg2.extras import RealDictCursor
 from typing import Dict, Any, List
+# pyrefly: ignore [missing-import]
 from dotenv import load_dotenv
 
 # Load environment variables from .env
 load_dotenv()
 
-DATABASE_URL = os.getenv("DATABASE_URL", "postgres://postgres:dev@localhost:5432/tasks")
 
-# Standardize postgres:// prefix to postgresql:// for psycopg2 compatibility
-if DATABASE_URL.startswith("postgres://"):
-    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
+def get_database_url() -> str:
+    """Retrieve and format PostgreSQL DATABASE_URL from environment."""
+    url = os.getenv("DATABASE_URL", "postgres://postgres:dev@localhost:5432/tasks")
+    if url.startswith("postgres://"):
+        url = url.replace("postgres://", "postgresql://", 1)
+    return url
 
 
 def get_db_connection():
     """Establish and return a connection to PostgreSQL."""
-    conn = psycopg2.connect(DATABASE_URL, cursor_factory=RealDictCursor)
+    conn = psycopg2.connect(get_database_url(), cursor_factory=RealDictCursor)
     return conn
 
 

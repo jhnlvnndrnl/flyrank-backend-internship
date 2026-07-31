@@ -45,13 +45,23 @@ assignment/
 ├── week-03/                        # Week 3: Persistence & Database Integration
 │   ├── README.md                  # Week 3 summary
 │   ├── backend/
-│   │   └── BE-03/                 # SQLite-backed CRUD API
-│   │       ├── README.md          # BE-03 Documentation & SQL queries
+│   │   ├── BE-03/                 # SQLite-backed CRUD API
+│   │   │   ├── README.md          # BE-03 Documentation & SQL queries
+│   │   │   ├── requirements.txt   # Dependencies
+│   │   │   └── app/
+│   │   │       ├── database.py    # SQLite connection & schema initialization
+│   │   │       └── main.py        # Parameterized SQL CRUD endpoints
+│   │   └── BE-04/                 # Containerized PostgreSQL & Docker Compose Stack
+│   │       ├── README.md          # BE-04 Documentation & Compose guide
+│   │       ├── .env.example       # Database URL template
+│   │       ├── Dockerfile         # App Docker build spec
+│   │       ├── compose.yaml       # Multi-container orchestration
 │   │       ├── requirements.txt   # Dependencies
 │   │       └── app/
-│   │           ├── database.py    # SQLite connection & schema initialization
+│   │           ├── database.py    # PostgreSQL connection & schema initialization
 │   │           └── main.py        # Parameterized SQL CRUD endpoints
 │   └── fluency/
+
 
 │
 └── docs/                           # Central Knowledge & Reference Docs
@@ -73,6 +83,8 @@ assignment/
 | **Week 2** | **Fluency** | [`FL-05`](week-02/fluency/FL-05/prompt_ladder.md) | Prompt Laddering & Output Comparison Benchmarks | `Completed` |
 | **Week 2** | **Fluency** | [`FL-06`](week-02/fluency/FL-06/Prompting_Fundamentals_on_Real_Tasks_v2.md) | Prompting Fundamentals on Real Tasks | `Completed` |
 | **Week 3** | **Backend** | [`BE-03`](week-03/backend/BE-03/README.md) | **Connecting your CRUD to SQLite Database** | `Completed` |
+| **Week 3** | **Backend** | [`BE-04`](week-03/backend/BE-04/README.md) | **Containerize your stack with PostgreSQL & Docker Compose** | `Completed` |
+
 
 
 ---
