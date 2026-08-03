@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identity Kit — Elvin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0f172a;
+    --light:#f8fafc;
+    --indigo:#4338ca;
+    --violet:#7c3aed;
+    --line: rgba(15,23,42,0.12);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:#ffffff;
+    color:var(--navy);
+    font-family:'Inter',sans-serif;
+    padding:56px 24px 80px;
+  }
+  .page{max-width:880px;margin:0 auto;}
+
+  .header{display:flex;align-items:center;gap:18px;margin-bottom:56px;}
+  .badge{
+    width:64px;height:64px;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:22px;
+    color:#fff;
+    background:linear-gradient(135deg, var(--indigo), var(--violet));
+    flex-shrink:0;
+  }
+  .header-text h1{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:22px;
+    letter-spacing:-0.02em;
+    margin:0 0 4px;
+  }
+  .header-text p{margin:0;font-size:13px;color:rgba(15,23,42,0.55);}
+
+  h2.section-label{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--indigo);
+    margin:0 0 18px;
+  }
+  section{padding:32px 0;border-top:1px solid var(--line);}
+  section:first-of-type{border-top:none;}
+
+  .type-row{display:flex;gap:40px;flex-wrap:wrap;}
+  .type-card{flex:1;min-width:240px;}
+  .type-card .role{
+    font-size:11px;color:rgba(15,23,42,0.5);
+    text-transform:uppercase;letter-spacing:0.06em;margin-bottom:8px;
+    font-weight:600;
+  }
+  .type-card .sample-h{
+    font-family:'Manrope',sans-serif;
+    font-weight:800;
+    font-size:34px;
+    letter-spacing:-0.02em;
+    margin:0 0 6px;
+  }
+  .type-card .sample-b{
+    font-size:16px;line-height:1.5;margin:0 0 8px;color:rgba(15,23,42,0.85);
+  }
+  .type-card .fontname{font-size:13px;font-weight:600;}
+
+  .palette{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .swatch{border:1px solid var(--line);}
+  .swatch .fill{height:80px;}
+  .swatch .meta{padding:10px 12px;background:#fff;}
+  .swatch .meta .name{font-size:12px;font-weight:700;display:block;margin-bottom:2px;}
+  .swatch .meta .hex{font-size:12px;color:rgba(15,23,42,0.6);font-family:monospace;}
+
+  .logo-row{display:flex;align-items:flex-end;gap:36px;flex-wrap:wrap;}
+  .logo-demo{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .logo-demo .cap{
+    font-size:11px;color:rgba(15,23,42,0.5);
+    text-transform:uppercase;letter-spacing:0.06em;font-weight:600;
+  }
+  .fav{
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Manrope',sans-serif;font-weight:800;color:#fff;
+    background:linear-gradient(135deg, var(--indigo), var(--violet));
+  }
+  .favicon-16{width:16px;height:16px;font-size:8px;}
+  .favicon-32{width:32px;height:32px;font-size:13px;}
+  .favicon-64{width:64px;height:64px;font-size:22px;}
+
+  .style-note{background:var(--navy);color:var(--light);padding:28px 32px;}
+  .style-note p{margin:0 0 8px;font-size:16px;line-height:1.6;}
+  .style-note p:last-child{margin-bottom:0;}
+
+  @media (max-width:600px){
+    .palette{grid-template-columns:repeat(2,1fr);}
+    .type-row{flex-direction:column;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="badge">E</div>
+    <div class="header-text">
+      <h1>Identity Kit</h1>
+      <p>Elvin — Software / AI Engineering portfolio</p>
+    </div>
+  </div>
+
+  <section>
+    <h2 class="section-label">01 — Type</h2>
+    <div class="type-row">
+      <div class="type-card">
+        <div class="role">Heading / Display</div>
+        <p class="sample-h">Systems, shipped.</p>
+        <p class="fontname">Manrope — Bold / ExtraBold</p>
+      </div>
+      <div class="type-card">
+        <div class="role">Body</div>
+        <p class="sample-b">Backend-first, AI-integrated when it earns its place. Clear structure over decoration.</p>
+        <p class="fontname">Inter — Regular / Medium</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-label">02 — Palette</h2>
+    <div class="palette">
+      <div class="swatch">
+        <div class="fill" style="background:var(--navy)"></div>
+        <div class="meta"><span class="name">Navy</span><span class="hex">#0f172a</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:#ffffff; border-bottom:1px solid var(--line)"></div>
+        <div class="meta"><span class="name">White</span><span class="hex">#ffffff</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--indigo)"></div>
+        <div class="meta"><span class="name">Indigo</span><span class="hex">#4338ca</span></div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--violet)"></div>
+        <div class="meta"><span class="name">Violet</span><span class="hex">#7c3aed</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-label">03 — Logo / Favicon</h2>
+    <div class="logo-row">
+      <div class="logo-demo"><div class="fav favicon-64">E</div><div class="cap">64px</div></div>
+      <div class="logo-demo"><div class="fav favicon-32">E</div><div class="cap">32px</div></div>
+      <div class="logo-demo"><div class="fav favicon-16">E</div><div class="cap">16px favicon</div></div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-label">04 — Style Note</h2>
+    <div class="style-note">
+      <p>Manrope headlines over Inter body copy, navy on white, with an indigo-to-violet gradient carrying the main color and marking key accents.</p>
+      <p>The mood is a modern engineering studio: confident, gradient-lit, built for products that feel current rather than austere.</p>
+    </div>
+  </section>
+
+</div>
+</body>
+</html>
