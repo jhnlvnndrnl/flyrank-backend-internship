@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JE — Software Engineer Visual Identity Kit</title>
+  <meta name="description" content="Official one-page visual identity kit for a personal software engineering portfolio, showcasing Syne typography, color system, and the JE monogram logo.">
+  
+  <!-- Google Fonts: Syne (Headings) and Inter (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Sidebar / Navigation -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-logo-container">
+        <!-- Embedded SVG Monogram Logo (small) -->
+        <svg class="brand-logo" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+          <rect width="512" height="512" rx="128" fill="#2563EB"/>
+          <text x="50%" y="54%" font-family="'Syne', sans-serif" font-weight="800" font-size="220" fill="#FFFFFF" dominant-baseline="middle" text-anchor="middle">JE</text>
+        </svg>
+      </div>
+      <div class="brand-info">
+        <span class="brand-name">JE Identity Kit</span>
+        <span class="brand-subtitle">Software Engineering</span>
+      </div>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="#overview" class="nav-item active" id="nav-link-overview">Overview</a>
+      <a href="#logo" class="nav-item" id="nav-link-logo">Monogram Logo</a>
+      <a href="#typography" class="nav-item" id="nav-link-typography">Typography</a>
+      <a href="#colors" class="nav-item" id="nav-link-colors">Color Palette</a>
+      <a href="#sandbox" class="nav-item" id="nav-link-sandbox">Portfolio Mockup</a>
+    </nav>
+    
+    <footer class="sidebar-footer">
+      <p>Created for Week 3 Fluency</p>
+    </footer>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <h1 class="page-title sr-only">JE — Software Engineer Visual Identity Kit</h1>
+    
+    <!-- Section: Overview / Intro -->
+    <section id="overview" class="content-section">
+      <span class="badge">Visual Identity</span>
+      <h2 class="section-title">Personal Brand Identity</h2>
+      <p class="section-lead">A clean, modern, and professional visual identity designed specifically for a software engineering portfolio. The system emphasizes clear structure, project content, and technical writing without distracting elements.</p>
+      
+      <!-- Style Note Card -->
+      <div class="style-note-card">
+        <h3 class="card-subtitle">Style Note</h3>
+        <p class="style-quote font-syne">Fonts: Syne for headings and Inter for body text. Colors: #2563EB, #111827, #F9FAFB, with #10B981 as the only accent.</p>
+        <p class="style-quote font-inter">Mood: Clean, technical, and confident. The visual identity should frame the work and allow projects, case studies, and engineering experience to be the primary focus.</p>
+      </div>
+    </section>
+
+    <!-- Section: Logo & Favicon -->
+    <section id="logo" class="content-section">
+      <h2 class="section-title">Monogram Logo</h2>
+      <p class="section-desc">A minimalist monogram using the initials <strong>JE</strong>. Designed in solid blue with white bold typography, ideal for favicons, headers, and social icons.</p>
+      
+      <div class="logo-grid">
+        <div class="logo-display-card">
+          <div class="display-box bg-white-grid">
+            <!-- SVG Monogram Logo (medium) -->
+            <svg id="svg-logo-preview" class="main-logo-preview" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+              <rect width="512" height="512" rx="128" fill="#2563EB"/>
+              <text x="50%" y="54%" font-family="'Syne', sans-serif" font-weight="800" font-size="220" fill="#FFFFFF" dominant-baseline="middle" text-anchor="middle">JE</text>
+            </svg>
+          </div>
+          <div class="display-meta">
+            <span class="meta-label">Primary Mark (512 &times; 512)</span>
+            <div class="meta-actions">
+              <button class="btn btn-secondary btn-sm" id="btn-copy-svg">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
+                Copy SVG
+              </button>
+              <button class="btn btn-primary btn-sm" id="btn-download-svg">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                Download SVG
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="logo-variants-card">
+          <h3 class="card-subtitle">Scale & Environment Context</h3>
+          
+          <div class="variants-list">
+            <!-- Variant: Navbar -->
+            <div class="variant-item">
+              <div class="variant-preview">
+                <div class="mock-nav">
+                  <svg viewBox="0 0 512 512" class="variant-logo-nav" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="512" height="512" rx="128" fill="#2563EB"/>
+                    <text x="50%" y="54%" font-family="'Syne', sans-serif" font-weight="800" font-size="220" fill="#FFFFFF" dominant-baseline="middle" text-anchor="middle">JE</text>
+                  </svg>
+                  <span class="mock-nav-text">john.doe</span>
+                </div>
+              </div>
+              <div class="variant-meta">
+                <span class="variant-name">Header Navigation</span>
+                <span class="variant-spec">Size: 32px</span>
+              </div>
+            </div>
+
+            <!-- Variant: Favicon Tab -->
+            <div class="variant-item">
+              <div class="variant-preview">
+                <div class="mock-tab">
+                  <svg viewBox="0 0 512 512" class="variant-logo-tab" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="512" height="512" rx="128" fill="#2563EB"/>
+                    <text x="50%" y="54%" font-family="'Syne', sans-serif" font-weight="800" font-size="220" fill="#FFFFFF" dominant-baseline="middle" text-anchor="middle">JE</text>
+                  </svg>
+                  <span class="mock-tab-text">JE — Software Engi...</span>
+                  <span class="mock-tab-close">&times;</span>
+                </div>
+              </div>
+              <div class="variant-meta">
+                <span class="variant-name">Favicon (Browser Tab)</span>
+                <span class="variant-spec">Size: 16px</span>
+              </div>
+            </div>
+
+            <!-- Variant: Dark / Light contrast -->
+            <div class="variant-item">
+              <div class="variant-preview dark-bg">
+                <svg viewBox="0 0 512 512" class="variant-logo-dark" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="512" height="512" rx="128" fill="#2563EB"/>
+                  <text x="50%" y="54%" font-family="'Syne', sans-serif" font-weight="800" font-size="220" fill="#FFFFFF" dominant-baseline="middle" text-anchor="middle">JE</text>
+                </svg>
+                <span class="contrast-label">Dark Mode Context</span>
+              </div>
+              <div class="variant-meta">
+                <span class="variant-name">Contrast Check</span>
+                <span class="variant-spec">On #111827 background</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Typography -->
+    <section id="typography" class="content-section">
+      <h2 class="section-title">Typography System</h2>
+      <p class="section-desc">Clean fonts configured for high readability and structured layouts. <strong>Syne</strong> anchors the headings, while <strong>Inter</strong> handles all technical details.</p>
+      
+      <div class="specimen-grid">
+        <!-- Font Specimen: Syne -->
+        <div class="specimen-card font-syne-card">
+          <div class="specimen-header">
+            <span class="font-tag">Heading Font</span>
+            <h3 class="font-family-name">Syne</h3>
+          </div>
+          <div class="specimen-body">
+            <div class="specimen-alphabet">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz</div>
+            <div class="specimen-showcase">
+              <div class="showcase-h1">Heading 1</div>
+              <div class="showcase-h2">Heading 2</div>
+              <div class="showcase-h3">Heading 3</div>
+            </div>
+            <div class="specimen-details">
+              <span>Weights: Bold (700), Extra Bold (800)</span>
+              <span>Application: Hero headers, major titles</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Font Specimen: Inter -->
+        <div class="specimen-card font-inter-card">
+          <div class="specimen-header">
+            <span class="font-tag">Body & UI Font</span>
+            <h3 class="font-family-name">Inter</h3>
+          </div>
+          <div class="specimen-body">
+            <div class="specimen-alphabet">AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz 1234567890</div>
+            <div class="specimen-showcase">
+              <p class="showcase-p">The quick brown fox jumps over the lazy dog. Developers write clean, maintainable systems that scale gracefully.</p>
+              <div class="showcase-ui-elements">
+                <button class="btn btn-primary btn-sm">Primary UI Button</button>
+                <code class="showcase-code">const system = new Portfolio();</code>
+              </div>
+            </div>
+            <div class="specimen-details">
+              <span>Weights: Regular (400), Medium (500), Semi-bold (600), Bold (700)</span>
+              <span>Application: Body text, navigation, buttons, documentation</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Typography Playground -->
+      <div class="playground-card">
+        <h3 class="card-subtitle">Typography Playground</h3>
+        <div class="playground-controls">
+          <label for="playground-input" class="sr-only">Type text to test typography</label>
+          <input type="text" id="playground-input" class="playground-field" value="Building high-performance backend systems with clean architectures" placeholder="Type here to test typography...">
+        </div>
+        <div class="playground-output">
+          <div class="output-item">
+            <span class="output-label">Syne Heading (700)</span>
+            <p id="output-syne" class="font-syne output-text">Building high-performance backend systems with clean architectures</p>
+          </div>
+          <div class="output-item">
+            <span class="output-label">Inter Body (400)</span>
+            <p id="output-inter" class="font-inter output-text">Building high-performance backend systems with clean architectures</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Color Palette -->
+    <section id="colors" class="content-section">
+      <h2 class="section-title">Color Palette</h2>
+      <p class="section-desc">A highly curated color scheme featuring high contrast, strict utility, and zero gradients. Use Emerald strictly for accents or success cues.</p>
+      
+      <div class="color-grid">
+        <!-- Color Card: Primary -->
+        <div class="color-card" data-hex="#2563EB">
+          <div class="color-swatch" style="background-color: #2563EB;">
+            <button class="color-copy-overlay" aria-label="Copy hex code #2563EB">Click to Copy</button>
+          </div>
+          <div class="color-info">
+            <div class="color-meta-header">
+              <span class="color-name">Primary Blue</span>
+              <span class="color-hex">#2563EB</span>
+            </div>
+            <p class="color-usage">Buttons, active links, primary UI actions, and branding marks.</p>
+          </div>
+        </div>
+
+        <!-- Color Card: Text -->
+        <div class="color-card" data-hex="#111827">
+          <div class="color-swatch" style="background-color: #111827;">
+            <button class="color-copy-overlay" aria-label="Copy hex code #111827">Click to Copy</button>
+          </div>
+          <div class="color-info">
+            <div class="color-meta-header">
+              <span class="color-name">Near Black</span>
+              <span class="color-hex">#111827</span>
+            </div>
+            <p class="color-usage">All primary headings, body copy, readable paragraphs, and dark containers.</p>
+          </div>
+        </div>
+
+        <!-- Color Card: Background -->
+        <div class="color-card border-card" data-hex="#F9FAFB">
+          <div class="color-swatch" style="background-color: #F9FAFB;">
+            <button class="color-copy-overlay dark-overlay" aria-label="Copy hex code #F9FAFB">Click to Copy</button>
+          </div>
+          <div class="color-info">
+            <div class="color-meta-header">
+              <span class="color-name">Near White</span>
+              <span class="color-hex">#F9FAFB</span>
+            </div>
+            <p class="color-usage">Page backgrounds, light cards, dividers, and empty state backgrounds.</p>
+          </div>
+        </div>
+
+        <!-- Color Card: Accent -->
+        <div class="color-card" data-hex="#10B981">
+          <div class="color-swatch" style="background-color: #10B981;">
+            <button class="color-copy-overlay" aria-label="Copy hex code #10B981">Click to Copy</button>
+          </div>
+          <div class="color-info">
+            <div class="color-meta-header">
+              <span class="color-name">Emerald Accent</span>
+              <span class="color-hex">#10B981</span>
+            </div>
+            <p class="color-usage">Used sparingly for tech tags, status updates, success metrics, and highlight cues.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Portfolio Mock Sandbox -->
+    <section id="sandbox" class="content-section">
+      <h2 class="section-title">Portfolio Live Sandbox</h2>
+      <p class="section-desc">A live preview of how the design system, fonts, and colors look when applied to standard portfolio components (headers, buttons, project cards, and reading lists).</p>
+      
+      <div class="sandbox-container">
+        
+        <!-- Mock Nav Bar -->
+        <div class="sandbox-header">
+          <div class="mock-nav-left">
+            <svg viewBox="0 0 512 512" class="mock-logo-svg" xmlns="http://www.w3.org/2000/svg">
+              <rect width="512" height="512" rx="128" fill="#2563EB"/>
+              <text x="50%" y="54%" font-family="'Syne', sans-serif" font-weight="800" font-size="220" fill="#FFFFFF" dominant-baseline="middle" text-anchor="middle">JE</text>
+            </svg>
+            <span class="mock-logo-title">John Doe</span>
+          </div>
+          <nav class="mock-nav-links">
+            <a href="#" class="mock-nav-link active">Projects</a>
+            <a href="#" class="mock-nav-link">Writing</a>
+            <a href="#" class="mock-nav-link">About</a>
+          </nav>
+        </div>
+
+        <!-- Mock Hero -->
+        <div class="sandbox-hero">
+          <p class="mock-hero-title">Designing systems that scale, beautifully.</p>
+          <p class="mock-hero-subtitle">Software engineer specializing in high-performance backends, clean API architectures, and cloud-native systems. Currently building next-generation infrastructure products.</p>
+          <div class="mock-hero-actions">
+            <a href="#" class="btn btn-primary">View Projects</a>
+            <a href="#" class="btn btn-secondary">Read Articles</a>
+          </div>
+        </div>
+
+        <div class="sandbox-content-grid">
+          <!-- Mock Project Card -->
+          <div class="mock-project-card">
+            <div class="mock-project-header">
+              <div class="mock-tag-list">
+                <span class="mock-tag font-inter"><span class="tag-dot"></span>Active</span>
+                <span class="mock-lang-tag">Rust</span>
+                <span class="mock-lang-tag">gRPC</span>
+              </div>
+              <h3 class="mock-project-title">AuraDB: High-Throughput Key-Value Store</h3>
+            </div>
+            <p class="mock-project-desc">A log-structured merge-tree key-value store optimized for high-write performance, built in Rust. Features lock-free memtables, background compaction, and custom serialization.</p>
+            <a href="#" class="mock-project-link">
+              Read case study
+              <svg class="link-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Mock Technical Writing List -->
+          <div class="mock-writing-card">
+            <h3 class="mock-card-header font-syne">Technical Writing</h3>
+            <ul class="mock-writing-list">
+              <li class="mock-writing-item">
+                <span class="mock-writing-date">Aug 2026</span>
+                <div class="mock-writing-details">
+                  <a href="#" class="mock-writing-link">Understanding Raft consensus protocol in Go</a>
+                  <p class="mock-writing-excerpt">A deep dive into building an LSM engine from scratch and analyzing compaction lag under heavy workloads.</p>
+                </div>
+              </li>
+              <li class="mock-writing-item">
+                <span class="mock-writing-date">Jul 2026</span>
+                <div class="mock-writing-details">
+                  <a href="#" class="mock-writing-link">Optimizing PostgreSQL connection pooling with PgBouncer</a>
+                  <p class="mock-writing-excerpt">Practical strategies to scale your database requests safely while keeping latency sub-millisecond.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Interactive toast notification component -->
+  <div id="toast" class="toast font-inter" aria-live="polite">Copied to clipboard!</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
