@@ -4,7 +4,7 @@ A production-grade, secure RESTful API built with **Python 3.10+** and **FastAPI
 
 ---
 
-## 🚀 Quickstart
+## Quickstart
 
 ### 1. Environment Setup
 Copy `.env.example` to `.env` and fill in your Supabase project credentials:
@@ -37,7 +37,7 @@ Access interactive Swagger UI docs at **[http://localhost:8000/docs](http://loca
 
 ---
 
-## 📑 API Endpoints Summary
+## API Endpoints Summary
 
 | HTTP Method | Path | Auth Required | Description | Success Status | Error Status |
 | :--- | :--- | :---: | :--- | :--- | :--- |
@@ -53,7 +53,7 @@ Access interactive Swagger UI docs at **[http://localhost:8000/docs](http://loca
 
 ---
 
-## 🔒 401 vs 403 Status Code Distinction
+## 401 vs 403 Status Code Distinction
 
 - **`401 Unauthorized` ("I don't know who you are")**: Returned when authentication token is missing, malformed, invalid, or expired.
   - *Example*: Calling `GET /protected/profile` without an `Authorization: Bearer <token>` header returns `401` (`{"error": "Access token required"}`).
@@ -62,7 +62,7 @@ Access interactive Swagger UI docs at **[http://localhost:8000/docs](http://loca
 
 ---
 
-## 📖 Interactive OpenAPI / Swagger UI (`/docs`)
+## Interactive OpenAPI / Swagger UI (`/docs`)
 
 FastAPI serves interactive OpenAPI documentation at `/docs`.
 
@@ -74,7 +74,7 @@ FastAPI serves interactive OpenAPI documentation at `/docs`.
 
 ---
 
-## 🧪 Automated Testing
+## Automated Testing
 
 Execute the unit test suite with `pytest`:
 ```bash
@@ -84,7 +84,7 @@ All 11 unit tests verify input validation, token extraction, 401 error payloads,
 
 ---
 
-## 💻 Verification Commands (`curl`)
+## Verification Commands (`curl`)
 
 ```bash
 # 1. Public endpoint (200 OK)
@@ -114,7 +114,7 @@ curl -i -X POST http://localhost:8000/auth/logout \
 
 ---
 
-## 🤖 Stage 7: AI vs Me (AI Rematch)
+## Stage 7: AI vs Me (AI Rematch)
 
 ### AI Benchmark Prompt
 > "Build a secure RESTful API using FastAPI and Supabase Auth with five endpoints (`POST /auth/signup`, `POST /auth/login`, `POST /auth/logout`, `GET /public/info`, `GET /protected/profile`). Return 201 for signup, 200 for login/reads, 204 for logout, 400 for bad input, and 401 for unauthorized access. Verify tokens via middleware guard and configure OpenAPI HTTPBearer security."
