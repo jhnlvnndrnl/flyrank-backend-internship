@@ -9,13 +9,15 @@ Week: 4 (BE-05)
 """
 
 from contextlib import asynccontextmanager
-from typing import Dict, Any, Optional
-from fastapi import FastAPI, Request, Response, status, Body, Header
+from typing import Dict, Any
+from fastapi import FastAPI, Request, Response, status, Body, Depends, HTTPException
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
 from app.config import SUPABASE_URL, PORT
 from app.supabase_client import get_supabase_client
+from app.dependencies import get_current_user, get_admin_user, security_scheme
+from app.schemas import RefreshTokenRequest
 
 
 @asynccontextmanager
@@ -44,6 +46,16 @@ async def validation_exception_handler(request: Request, exc: RequestValidationE
         status_code=status.HTTP_400_BAD_REQUEST,
         content={"error": "Email and password are required"},
     )
+
+
+@app.exception_handler(HTTPException)
+async def http_exception_handler(request: Request, exc: HTTPException):
+    """Ensure all HTTP exceptions return structured error payloads."""
+    if isinstance(exc.detail, dict) and "error" in exc.detail:
+        content = exc.detail
+    else:
+        content = {"error": str(exc.detail)}
+    return JSONResponse(status_code=exc.status_code, content=content)
 
 
 @app.get("/", summary="API Root", description="Returns API metadata and operational status.")
@@ -148,8 +160,53 @@ async def login(payload: Dict[str, Any] = Body(...)):
         )
 
 
+@app.post(
+    "/auth/logout",
+    status_code=status.HTTP_204_NO_CONTENT,
+    summary="User Logout",
+    description="Invalidate session and sign out user via Supabase Auth.",
+)
+async def logout(current_user: Dict[str, Any] = Depends(get_current_user)):
+    """Sign out user session and return HTTP 204 No Content."""
+    supabase = get_supabase_client()
+    try:
+        supabase.auth.sign_out()
+    except Exception:
+        pass
+    return Response(status_code=status.HTTP_204_NO_CONTENT)
+
+
+@app.post(
+    "/auth/refresh",
+    status_code=status.HTTP_200_OK,
+    summary="Refresh Access Token",
+    description="Exchange a valid refresh token for a new access token.",
+)
+async def refresh_token(payload: RefreshTokenRequest):
+    """Refresh access token using refresh_token."""
+    supabase = get_supabase_client()
+    try:
+        res = supabase.auth.refresh_session(payload.refresh_token)
+        if not res or not res.session:
+            return JSONResponse(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                content={"error": "Invalid or expired refresh token"},
+            )
+        return {
+            "access_token": res.session.access_token,
+            "refresh_token": res.session.refresh_token,
+            "token_type": "bearer",
+            "expires_in": res.session.expires_in,
+        }
+    except Exception:
+        return JSONResponse(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            content={"error": "Invalid or expired refresh token"},
+        )
+
+
 # ==========================================
-# STAGE 2 & 3: PUBLIC ROUTE & TOKEN VERIFICATION
+# STAGE 2, 3, 4: PUBLIC & PROTECTED ROUTES
 # ==========================================
 
 @app.get(
@@ -166,43 +223,47 @@ def get_public_info():
 @app.get(
     "/protected/profile",
     status_code=status.HTTP_200_OK,
-    summary="Get User Profile",
-    description="Protected route verifying JWT bearer token with Supabase Auth.",
+    summary="Get Protected Profile",
+    description="Protected route using reusable FastAPI auth middleware guard.",
 )
-def get_protected_profile(authorization: Optional[str] = Header(None)):
-    """Protected profile endpoint that verifies the access token against Supabase."""
-    if not authorization or not authorization.startswith("Bearer "):
-        return JSONResponse(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            content={"error": "Access token required"},
-        )
+def get_protected_profile(current_user: Dict[str, Any] = Depends(get_current_user)):
+    """Protected profile endpoint returning authenticated user metadata."""
+    return {
+        "id": current_user["id"],
+        "email": current_user["email"],
+        "created_at": current_user["created_at"],
+        "app_metadata": current_user["app_metadata"],
+        "user_metadata": current_user["user_metadata"],
+    }
 
-    token = authorization.split("Bearer ")[1].strip()
-    if not token:
-        return JSONResponse(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            content={"error": "Access token required"},
-        )
 
-    supabase = get_supabase_client()
-    try:
-        user_response = supabase.auth.get_user(token)
-        if not user_response or not user_response.user:
-            return JSONResponse(
-                status_code=status.HTTP_401_UNAUTHORIZED,
-                content={"error": "Invalid or expired token"},
-            )
+@app.get(
+    "/protected/dashboard",
+    status_code=status.HTTP_200_OK,
+    summary="Get Protected Dashboard",
+    description="Second protected route demonstrating reusable auth middleware guard.",
+)
+def get_protected_dashboard(current_user: Dict[str, Any] = Depends(get_current_user)):
+    """Protected dashboard endpoint demonstrating reusable middleware authorization."""
+    return {
+        "message": f"Welcome to your private dashboard, {current_user['email']}!",
+        "metrics": {
+            "audits_completed": 12,
+            "seo_score": 94,
+            "status": "Active Intern",
+        },
+    }
 
-        user = user_response.user
-        return {
-            "id": user.id,
-            "email": user.email,
-            "created_at": str(user.created_at),
-            "app_metadata": user.app_metadata,
-            "user_metadata": user.user_metadata,
-        }
-    except Exception:
-        return JSONResponse(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            content={"error": "Invalid or expired token"},
-        )
+
+@app.get(
+    "/admin/stats",
+    status_code=status.HTTP_200_OK,
+    summary="Get Admin Statistics",
+    description="Protected endpoint demonstrating 403 Forbidden authorization failure for non-admins.",
+)
+def get_admin_stats(admin_user: Dict[str, Any] = Depends(get_admin_user)):
+    """Admin-only endpoint returning HTTP 403 when user is authenticated but not an admin."""
+    return {
+        "admin": admin_user["email"],
+        "system_stats": {"total_users": 1500, "active_sessions": 42},
+    }
