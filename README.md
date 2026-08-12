@@ -63,6 +63,15 @@ assignment/
 │   └── fluency/
 
 
+├── week-04/                        # Week 4: Auth, Identity & Route Protection
+│   ├── README.md                  # Week 4 summary
+│   └── backend/
+│       └── BE-05/                 # Supabase Auth & JWT Protection API
+│           ├── README.md          # BE-05 API Documentation & Swagger Guide
+│           ├── .env.example       # Secrets template
+│           ├── requirements.txt   # Dependencies
+│           ├── app/               # FastAPI auth & middleware guard code
+│           └── tests/             # Pytest automated test suite
 │
 └── docs/                           # Central Knowledge & Reference Docs
     ├── resources.md               # Curated learning resources & references
@@ -84,6 +93,8 @@ assignment/
 | **Week 2** | **Fluency** | [`FL-06`](week-02/fluency/FL-06/Prompting_Fundamentals_on_Real_Tasks_v2.md) | Prompting Fundamentals on Real Tasks | `Completed` |
 | **Week 3** | **Backend** | [`BE-03`](week-03/backend/BE-03/README.md) | **Connecting your CRUD to SQLite Database** | `Completed` |
 | **Week 3** | **Backend** | [`BE-04`](week-03/backend/BE-04/README.md) | **Containerize your stack with PostgreSQL & Docker Compose** | `Completed` |
+| **Week 4** | **Backend** | [`BE-05`](week-04/backend/BE-05/README.md) | **Auth · Login & Protect API** with Supabase Auth & JWT Middleware | `Completed` |
+
 
 
 
