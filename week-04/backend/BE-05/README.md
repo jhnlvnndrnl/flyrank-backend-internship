@@ -111,3 +111,38 @@ curl -i http://localhost:8000/protected/profile \
 curl -i -X POST http://localhost:8000/auth/logout \
   -H "Authorization: Bearer <YOUR_ACCESS_TOKEN>"
 ```
+
+---
+
+## 🤖 Stage 7: AI vs Me (AI Rematch)
+
+### AI Benchmark Prompt
+> "Build a secure RESTful API using FastAPI and Supabase Auth with five endpoints (`POST /auth/signup`, `POST /auth/login`, `POST /auth/logout`, `GET /public/info`, `GET /protected/profile`). Return 201 for signup, 200 for login/reads, 204 for logout, 400 for bad input, and 401 for unauthorized access. Verify tokens via middleware guard and configure OpenAPI HTTPBearer security."
+
+---
+
+### Comparative Evaluation Matrix
+
+| Evaluated Dimension | Hand-Crafted Code (Stages 0–6) | AI Quarantine Code (`ai-version/`) |
+| :--- | :--- | :--- |
+| **Token Extraction & Parsing** | Checks `Authorization` header presence, validates `Bearer ` prefix explicitly, handles missing/empty tokens cleanly returning status 401. | Naively calls `authorization.split(" ")[1]`, which crashes with an unhandled `AttributeError` or `IndexError` when `Authorization` header is missing or malformed. |
+| **Error Handling & Security Flaws** | Catches Supabase SDK exceptions and returns uniform `401 Unauthorized` JSON errors (`{"error": "Invalid or expired token"}`). | Trusts `supabase.auth.get_user(token)` without checking exceptions or return null states, potentially crashing or leaking 500 server stack traces. |
+| **Response Specifications** | Strictly returns `204 No Content` for logout, explicit HTTP status codes (`201`, `200`, `400`, `401`, `403`), and custom validation JSON error payloads. | Returned HTTP `200` for logout instead of `204 No Content`, used default FastAPI 422 Unprocessable Entity error payloads instead of explicit 400 Bad Request `{"error": "..."}` payloads. |
+| **OpenAPI / Swagger Integration** | Configured `HTTPBearer(bearerFormat="JWT")` dependency attached to protected routes, enabling the Swagger UI `Authorize` padlock. | Left Swagger UI unconfigured without security scheme definitions, making protected endpoints impossible to test directly from `/docs`. |
+
+---
+
+### AI Rematch Reflection Answers
+
+1. **How did it handle token extraction?**
+   The AI code used `authorization.split(" ")[1]` without checking if the `Authorization` header was `None`, missing, or properly formatted. Passing no header or a raw token without `Bearer ` causes a 500 Internal Server Error crash rather than returning a proper `401 Unauthorized`.
+
+2. **What security flaws might it have introduced?**
+   The AI code failed to catch invalid token exceptions from `supabase.auth.get_user(token)`, exposing raw internal stack traces to callers when an invalid or expired token is passed. Additionally, it did not implement role authorization checks, making HTTP `403 Forbidden` protection impossible.
+
+3. **What did your prompt forget to specify — and what did the AI decide?**
+   The prompt forgot to specify exact exception handling for missing headers and custom Pydantic validation handlers. The AI silently decided to rely on FastAPI's default 422 error handlers and generic 500 unhandled exception handling.
+
+4. **One Rematch Lesson**:
+   *Adding explicit constraints for header validation, status code contracts (204 vs 200), and OpenAPI security schemes transforms AI-generated code from an unstable prototype into a robust production implementation.*
+
