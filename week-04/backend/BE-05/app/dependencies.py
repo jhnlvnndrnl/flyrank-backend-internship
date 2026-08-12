@@ -11,7 +11,7 @@ from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from app.supabase_client import get_supabase_client
 
 # Define HTTP Bearer security scheme for Swagger UI & OpenAPI specs
-security_scheme = HTTPBearer(auto_error=False)
+security_scheme = HTTPBearer(bearerFormat="JWT", auto_error=False)
 
 
 async def get_current_user(
