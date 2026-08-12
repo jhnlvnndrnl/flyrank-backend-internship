@@ -149,7 +149,7 @@ async def login(payload: Dict[str, Any] = Body(...)):
 
 
 # ==========================================
-# STAGE 2: PUBLIC & UNVERIFIED PROTECTED GATES
+# STAGE 2 & 3: PUBLIC ROUTE & TOKEN VERIFICATION
 # ==========================================
 
 @app.get(
@@ -167,10 +167,10 @@ def get_public_info():
     "/protected/profile",
     status_code=status.HTTP_200_OK,
     summary="Get User Profile",
-    description="Protected route requiring Bearer authorization token header.",
+    description="Protected route verifying JWT bearer token with Supabase Auth.",
 )
 def get_protected_profile(authorization: Optional[str] = Header(None)):
-    """Protected profile endpoint checking Authorization header presence."""
+    """Protected profile endpoint that verifies the access token against Supabase."""
     if not authorization or not authorization.startswith("Bearer "):
         return JSONResponse(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -184,7 +184,25 @@ def get_protected_profile(authorization: Optional[str] = Header(None)):
             content={"error": "Access token required"},
         )
 
-    return {
-        "message": "Access granted (unverified token stage)",
-        "token_preview": token[:10] + "...",
-    }
+    supabase = get_supabase_client()
+    try:
+        user_response = supabase.auth.get_user(token)
+        if not user_response or not user_response.user:
+            return JSONResponse(
+                status_code=status.HTTP_401_UNAUTHORIZED,
+                content={"error": "Invalid or expired token"},
+            )
+
+        user = user_response.user
+        return {
+            "id": user.id,
+            "email": user.email,
+            "created_at": str(user.created_at),
+            "app_metadata": user.app_metadata,
+            "user_metadata": user.user_metadata,
+        }
+    except Exception:
+        return JSONResponse(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            content={"error": "Invalid or expired token"},
+        )
