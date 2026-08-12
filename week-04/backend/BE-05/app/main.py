@@ -9,8 +9,8 @@ Week: 4 (BE-05)
 """
 
 from contextlib import asynccontextmanager
-from typing import Dict, Any
-from fastapi import FastAPI, Request, Response, status, Body
+from typing import Dict, Any, Optional
+from fastapi import FastAPI, Request, Response, status, Body, Header
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
@@ -146,3 +146,45 @@ async def login(payload: Dict[str, Any] = Body(...)):
             status_code=status.HTTP_401_UNAUTHORIZED,
             content={"error": "Invalid login credentials"},
         )
+
+
+# ==========================================
+# STAGE 2: PUBLIC & UNVERIFIED PROTECTED GATES
+# ==========================================
+
+@app.get(
+    "/public/info",
+    status_code=status.HTTP_200_OK,
+    summary="Get Public Information",
+    description="Open endpoint reachable by anyone without authentication.",
+)
+def get_public_info():
+    """Public route returning open data."""
+    return {"message": "Welcome stranger! This info is public."}
+
+
+@app.get(
+    "/protected/profile",
+    status_code=status.HTTP_200_OK,
+    summary="Get User Profile",
+    description="Protected route requiring Bearer authorization token header.",
+)
+def get_protected_profile(authorization: Optional[str] = Header(None)):
+    """Protected profile endpoint checking Authorization header presence."""
+    if not authorization or not authorization.startswith("Bearer "):
+        return JSONResponse(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            content={"error": "Access token required"},
+        )
+
+    token = authorization.split("Bearer ")[1].strip()
+    if not token:
+        return JSONResponse(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            content={"error": "Access token required"},
+        )
+
+    return {
+        "message": "Access granted (unverified token stage)",
+        "token_preview": token[:10] + "...",
+    }
