@@ -94,6 +94,11 @@ assignment/
 | **Week 3** | **Backend** | [`BE-03`](week-03/backend/BE-03/README.md) | **Connecting your CRUD to SQLite Database** | `Completed` |
 | **Week 3** | **Backend** | [`BE-04`](week-03/backend/BE-04/README.md) | **Containerize your stack with PostgreSQL & Docker Compose** | `Completed` |
 | **Week 4** | **Backend** | [`BE-05`](week-04/backend/BE-05/README.md) | **Auth · Login & Protect API** with Supabase Auth & JWT Middleware | `Completed` |
+| **Week 5** | **Backend** | [`A9`](week-05/ai-version/README.md) | **The Polite Scraper** & HTML Extraction Pipeline | `Completed` |
+| **Week 6** | **Backend** | [`BE-07`](week-06/backend/BE-07/README.md) | **LLM Integration & Prompt Engineering Backend** | `Completed` |
+| **Week 7** | **Backend** | [`A7`](week-07/01-background-job/README.md) | **Your First Background Job** (Inngest, Cron, Retries) | `In Progress` |
+| **Week 7** | **Backend** | [`A8`](week-07/02-pdf-report-generator/README.md) | **PDF Report Generator** (SQLite, Playwright HTML-to-PDF) | `In Progress` |
+| **Week 7** | **Fullstack / AI** | [`Workflow`](week-07/03-visual-ai-workflow/README.md) | **Visual AI Workflow System** (React Flow + Inngest) | `In Progress` |
 
 
 
