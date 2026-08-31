@@ -266,7 +266,7 @@ export function WorkflowEditor() {
           (e) =>
             e.sourceHandle === decision.toLowerCase() ||
             e.data?.condition === decision ||
-            e.label?.toUpperCase() === decision
+            (typeof e.label === "string" && e.label.toUpperCase() === decision)
         ) || outgoingEdges[0];
 
         if (activeEdge) {
